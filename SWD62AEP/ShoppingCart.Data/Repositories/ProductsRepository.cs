@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using System.Text;
 using ShoppingCart.Data.Context;
 
 namespace ShoppingCart.Data.Repositories
