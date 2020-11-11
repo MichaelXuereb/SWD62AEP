@@ -36,7 +36,7 @@ namespace ShoppingCart.Data.Repositories
 
         public IQueryable<Product> GetProducts()
         {
-            throw new NotImplementedException();
+            return _context.Products;
         }
     }
 }
