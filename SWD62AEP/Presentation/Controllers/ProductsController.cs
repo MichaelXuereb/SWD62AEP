@@ -22,5 +22,10 @@ namespace Presentation.Controllers
             var list = _productsService.GetProducts().OrderByDescending(x=>x.Price).Where(x=>x.Price > 100);
             return View(list);
         }
+        public IActionResult Details(Guid id) {
+
+           var myProduct = _productsService.GetProduct(id);
+            return View(myProduct);
+        }
     }
 }
