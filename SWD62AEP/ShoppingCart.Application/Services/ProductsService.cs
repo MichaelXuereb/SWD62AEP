@@ -48,5 +48,18 @@ namespace ShoppingCart.Application.Services
 
             return myViewModel;
         }
+
+        public void AddProduct(ProductViewModel data)
+        {
+            Product p = new Product();
+            p.Description = data.Description;
+            p.ImageUrl = data.ImageUrl;
+            p.Name = data.Name;
+            p.Price = data.Price;
+            p.CategoryId = data.Category.Id;
+
+
+            _productRepo.AddProduct(p);
+        }
     }
 }

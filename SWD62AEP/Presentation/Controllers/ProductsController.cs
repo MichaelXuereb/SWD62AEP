@@ -19,13 +19,32 @@ namespace Presentation.Controllers
 
         public IActionResult Index()
         {
-            var list = _productsService.GetProducts().OrderByDescending(x=>x.Price).Where(x=>x.Price > 100);
+            var list = _productsService.GetProducts().OrderByDescending(x => x.Price).Where(x => x.Price > 100);
             return View(list);
         }
         public IActionResult Details(Guid id) {
 
-           var myProduct = _productsService.GetProduct(id);
+            var myProduct = _productsService.GetProduct(id);
             return View(myProduct);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+            [HttpPost]
+        public IActionResult Create(ProductViewModel data) {
+            try {
+                _productsService.AddProduct(data);
+                ViewData["feedback"] = "Product was added successfully";
+                ModelState.Clear();
+            }catch(Exception ex){
+
+                ViewData["feedback"] = "Product was not added. Check your details";
+            }
+            return View();
         }
     }
 }
