@@ -11,9 +11,9 @@ namespace ShoppingCart.Application.Services
     public class CategoriesService : ICategoriesService
     {
         private ICategoriesRepository _categoryRepo;
-        public CategoriesService(IProductsRepository categoryRepo)
+        public CategoriesService(ICategoriesRepository categoryRepo)
         {
-            _categoryRepo = (ICategoriesRepository)categoryRepo;
+            _categoryRepo = categoryRepo;
         }
 
         public IQueryable<CategoryViewModel> GetCategories()
