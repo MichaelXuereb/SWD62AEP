@@ -14,6 +14,10 @@ namespace ShoppingCart.Data.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Member> Members { get; set; }
+
+        //public DbSet<ProductImage> ProductImage { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
