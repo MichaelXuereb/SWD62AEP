@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using ShoppingCart.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using ShoppingCart.Application.AutoMapper;
 
 namespace ShoppingCart.IOC
 {
@@ -45,6 +47,9 @@ namespace ShoppingCart.IOC
 
             services.AddScoped<IMembersRepository, MembersRepository>();
             services.AddScoped<IMembersService, MembersSerivce>();
+
+            services.AddAutoMapper(typeof(AutoMapperConfiguration));
+            AutoMapperConfiguration.RegisterMappings();
         }
     }
 }
